@@ -208,6 +208,14 @@ const config: Config = {
     },
   ],
 
+  // Baidu Analytics
+  scripts: [
+    {
+      src: 'https://hm.baidu.com/hm.js?0b8bbee27b5404c869dded46a59bdc8d',
+      async: true,
+    },
+  ],
+
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
