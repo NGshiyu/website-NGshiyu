@@ -3,6 +3,7 @@ import TOCItemsOriginal from '@theme-original/TOCItems'
 import type TOCItemsType from '@theme/TOCItems'
 import type { WrapperProps } from '@docusaurus/types'
 import { useDoc } from '@docusaurus/plugin-content-docs/client'
+import { useLocation } from '@docusaurus/router'
 import Translate from '@docusaurus/Translate'
 import styles from './styles.module.css'
 
@@ -75,12 +76,17 @@ class DocPageLinksErrorBoundary extends React.Component<
 }
 
 export default function TOCItemsWrapper(props: Props): ReactNode {
+  const { pathname } = useLocation()
+  const isDocsRoute = /^\/(en\/)?(docs|agents|ecosystem|integration)(\/|$)/.test(pathname)
+
   return (
     <>
       <TOCItemsOriginal {...props} />
-      <DocPageLinksErrorBoundary>
-        <DocPageLinks />
-      </DocPageLinksErrorBoundary>
+      {isDocsRoute && (
+        <DocPageLinksErrorBoundary>
+          <DocPageLinks />
+        </DocPageLinksErrorBoundary>
+      )}
     </>
   )
 }
