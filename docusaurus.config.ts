@@ -475,7 +475,7 @@ const config: Config = {
           items: [
             {
               label: 'DeepResearch',
-              to: '/agents/deepresearch/quick-start',
+              to: '/agents/deepresearch/graph/quick-start',
             },
             {
               label: 'DataAgent',
